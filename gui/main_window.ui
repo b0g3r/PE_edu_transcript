@@ -1,10 +1,8 @@
-<ui version="4.0" >
- <author></author>
- <comment></comment>
- <exportmacro></exportmacro>
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,13 +10,69 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar" />
-  <widget class="QWidget" name="centralwidget" />
-  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>191</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QListView" name="listView">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>201</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="modelColumn">
+     <number>0</number>
+    </property>
+    <property name="batchSize">
+     <number>2</number>
+    </property>
+   </widget>
+   <widget class="QTreeView" name="treeView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>191</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QColumnView" name="columnView">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>200</y>
+      <width>201</width>
+      <height>171</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <pixmapfunction></pixmapfunction>
+ <resources/>
  <connections/>
 </ui>
