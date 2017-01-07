@@ -2,34 +2,9 @@ from PyQt5.QtCore import QAbstractTableModel
 from PyQt5.QtCore import QModelIndex
 from PyQt5.QtCore import QVariant
 from PyQt5.QtCore import Qt
-from peewee import SqliteDatabase, Model, Expression
-from peewee import CharField, ForeignKeyField
-db = SqliteDatabase('test.db')
+from peewee import Expression
 
-class BaseModel(Model):
-    def __repr__(self):
-        return '<model.{} object ({}) at {}>'.format(
-            self.__class__.__name__,
-            ', '.join('{}: {!r}'.format(key, self.__getattribute__(key)) for key in self._meta.fields),
-            hex(id(self)).upper())
-
-    class Meta:
-        database = db
-
-
-class Group(BaseModel):
-    num = CharField()
-
-    def __str__(self):
-        return self.num
-
-
-class Student(BaseModel):
-    name = CharField()
-    group = ForeignKeyField(Group, related_name='students')
-
-    def __str__(self):
-        return self.name
+from model.base import BaseModel
 
 
 class PeeweeTableModel(QAbstractTableModel):
@@ -61,7 +36,7 @@ class PeeweeTableModel(QAbstractTableModel):
     def headerData(self, column, orientation, role=None):
         """Возвращает заголовок для каждого столбца"""
         if orientation == Qt.Horizontal and role == Qt.DisplayRole:
-            return self.model._meta.sorted_field_names[int(not self.show_id) + column]
+            return self.model._meta.sorted_fields[int(not self.show_id) + column].verbose_name
         else:
             return QVariant()
 

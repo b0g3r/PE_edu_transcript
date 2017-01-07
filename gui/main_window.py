@@ -5,7 +5,9 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow
 
 from gui.helper import get_real_path
-from model import *
+from model.adapters import PeeweeTableModel
+from model.student import Student
+from model.group import Group
 
 
 class MainWindow(QMainWindow):
@@ -18,9 +20,10 @@ class MainWindow(QMainWindow):
     def init_ui(self):
         """Инициализирует элементы интерфейса
         """
-        model = PeeweeTableModel(Student, order=Student.name)
+        from gui.edit import EditDialog
+        EditDialog(Student.get()).exec_()
+        model = PeeweeTableModel(Group, order=+Group.num)
+        model2 = PeeweeTableModel(Student, order=+Student.name)
         self.tableView.setModel(model)
-        self.listView.setModel(model)
-        self.treeView.setModel(model)
-        self.columnView.setModel(model)
+        self.tableView_2.setModel(model2)
         self.show()

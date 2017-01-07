@@ -23,42 +23,34 @@
       <height>171</height>
      </rect>
     </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
    </widget>
-   <widget class="QListView" name="listView">
+   <widget class="QTableView" name="tableView_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>230</x>
       <y>10</y>
-      <width>201</width>
-      <height>171</height>
-     </rect>
-    </property>
-    <property name="modelColumn">
-     <number>0</number>
-    </property>
-    <property name="batchSize">
-     <number>2</number>
-    </property>
-   </widget>
-   <widget class="QTreeView" name="treeView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>200</y>
       <width>191</width>
       <height>171</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QColumnView" name="columnView">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>200</y>
-      <width>201</width>
-      <height>171</height>
-     </rect>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -6,7 +6,7 @@ from gui.main_window import MainWindow
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
-    ex = MainWindow()
+
     sys._excepthook = sys.excepthook
 
     def my_exception_hook(exctype, value, traceback):
@@ -17,4 +17,5 @@ if __name__ == '__main__':
         sys.exit(1)
 
     sys.excepthook = my_exception_hook
+    ex = MainWindow()
     sys.exit(app.exec_())
