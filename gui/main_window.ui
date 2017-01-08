@@ -14,43 +14,57 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="tableView">
+   <widget class="QPushButton" name="button_open_groups">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>191</width>
-      <height>171</height>
+      <x>20</x>
+      <y>50</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="sortingEnabled">
-     <bool>true</bool>
+    <property name="text">
+     <string>Группы</string>
     </property>
-    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
    </widget>
-   <widget class="QTableView" name="tableView_2">
+   <widget class="QPushButton" name="button_open_search">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>10</y>
-      <width>191</width>
-      <height>171</height>
+      <x>20</x>
+      <y>100</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
     </property>
-    <property name="sortingEnabled">
-     <bool>true</bool>
+    <property name="text">
+     <string>Поиск</string>
     </property>
-    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
+   </widget>
+   <widget class="QPushButton" name="button_open_">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>150</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Нормативы</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_open_search_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -62,8 +76,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>тест</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>ещё один тест</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

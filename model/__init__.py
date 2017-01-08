@@ -4,3 +4,5 @@
 Остальные модели в соответствующих файлах
 Адаптеры для qt-интерфейса описаны в `adapters.py`
 """
+from .student import Student
+from .group import Group

@@ -7,6 +7,11 @@ from model.base import BaseModel, ChoiceField
 
 
 class EditDialog(QDialog):
+    """Универсальный класс для моделей.
+    Если передаётся инстанс - отрисовывает окно "изменить" с заполненными полями
+    Если передается класс модели - отрисовывает окно "добавить" с пустыми полями
+    """
+
     def __init__(self, model: BaseModel):
         super().__init__()
         self.choices = {}
@@ -29,7 +34,7 @@ class EditDialog(QDialog):
                 self.choices[model_field] = choice
                 field.addItems(choice.keys())
             else:
-                raise Exception('Попытка сгенерировать интерфейс не удалась - не умею такое поле')
+                raise NotImplementedError('Попытка сгенерировать интерфейс не удалась - не умею такое поле')
             self.formLayout.setWidget(i, QFormLayout.LabelRole, label)
             self.formLayout.setWidget(i, QFormLayout.FieldRole, field)
             self.bind[model_field] = field
@@ -57,7 +62,7 @@ class EditDialog(QDialog):
                 elif isinstance(model_field, ForeignKeyField):
                     qt_field.setCurrentText(str(value))
                 else:
-                    raise Exception('Попытка сгенерировать интерфейс не удалась - не умею такое поле')
+                    raise NotImplementedError('Попытка сгенерировать интерфейс не удалась - не умею такое поле')
 
     def edit(self):
         """Изменяет инстанс модели"""
@@ -78,7 +83,7 @@ class EditDialog(QDialog):
             elif isinstance(model_field, ForeignKeyField):
                 setattr(model, name, self.choices[model_field][qt_field.currentText()])
             else:
-                raise Exception('Попытка не удалась - не умею такое поле')
+                raise NotImplementedError('Попытка не удалась - не умею такое поле')
         try:
             model.save()
         except IntegrityError:  # peewee.IntegrityError: UNIQUE constraint failed: group.num
