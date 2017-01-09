@@ -4,11 +4,6 @@ db = SqliteDatabase('test.db')
 
 
 class BaseModel(Model):
-
-    @property
-    def verbose_name(self):
-        raise NotImplementedError()
-
     def __repr__(self):
         return '<model.{} object ({}) at {}>'.format(
             self.__class__.__name__,

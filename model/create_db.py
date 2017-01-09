@@ -1,8 +1,10 @@
-from model.student import Student
-from model.group import Group
+from model import *
+from model import Semester, Progress, Exam
 from model.base import db
+from model.exam import ExamResult
+from model.exercise import Exercise
 
-if __name__ == '__main__':
-    db.connect()
-    db.drop_tables([Student, Group])
-    db.create_tables([Student, Group])
+db.connect()
+
+db.drop_tables([Student, Group, Semester, Progress, Exercise, Exam, ExamResult])
+db.create_tables([Student, Group, Semester, Progress, Exercise, Exam, ExamResult])
