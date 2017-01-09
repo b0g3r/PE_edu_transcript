@@ -1,10 +1,14 @@
 import sys
+
+from PyQt5.QtWidgets import QPushButton
+
 from model import create_db
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication
 
-from model import *
+from model import Group, Student, Exam, ExamResult, Exercise, Progress, Semester
 from datetime import date
+from dateutil.relativedelta import relativedelta
 
 g446 = Group.create(num='446', edu_form='Очная', admission_year=2014)
 boger = Student.create(name='Богер Дмитрий Александович', group=g446)
@@ -46,15 +50,26 @@ class MainWindow(QMainWindow):
     def init_ui(self):
         """Инициализирует элементы интерфейса
         """
+        self.month = date(2016,9,1)
+
         self.setCentralWidget(QtWidgets.QWidget())
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralWidget())
-        self.model = StudentsFullDataTableModel(Group.get(), date(2016, 9, 1))
+
+        #self.model = StudentsGeneralDataTableModel(Group.get(), Semester.get())
         self.tableView = QtWidgets.QTableView()
+
+        self.horizontalLayout.addWidget(self.tableView)
+        self.button = QPushButton()
+        self.button.clicked.connect(self.aaa)
+        self.horizontalLayout.addWidget(self.button)
+        self.show()
+
+    def aaa(self):
+        self.month += relativedelta(months=1)
+        self.model = StudentsFullDataTableModel(Group.get(), self.month)
         self.tableView.setModel(self.model)
         self.tableView.resizeColumnsToContents()
         self.tableView.clicked.connect(self.model.clicked)
-        self.horizontalLayout.addWidget(self.tableView)
-        self.show()
 
 app = QApplication(sys.argv)
 
